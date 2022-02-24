@@ -2,8 +2,8 @@ const express = require('express');
 const path = require('path');
 
 // include and initialize the rollbar library with your access token
-var Rollbar = require('rollbar')
-var rollbar = new Rollbar({
+const Rollbar = require('rollbar')
+const rollbar = new Rollbar({
   accessToken: '72b9be6f5f7b49f1ac299b3c508392c5',
   captureUncaught: true,
   captureUnhandledRejections: true,
@@ -18,13 +18,13 @@ app.get('/', function(req, res){
     res.sendFile(path.join(__dirname, '../index.html'))
 });
 
-try {nonExistentFunction(); 
+try {nonExistentFunctionOne(); 
 } catch (error) {
     rollbar.error(`${nonExistentFunction} does not exist.`);     
     // expected output: ReferenceError: nonExistentFunction is not defined     
     // Note - error messages will vary depending on browser 
     }
-try {nonExistentFunction(); 
+try {nonExistentFunctionTwo(); 
 } catch (error) {
     rollbar.critical(`${nonExistentFunction} does not exist. CRITICAL`);     
     // expected output: ReferenceError: nonExistentFunction is not defined     
