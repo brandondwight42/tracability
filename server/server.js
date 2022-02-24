@@ -30,6 +30,14 @@ try {nonExistentFunctionTwo();
     // expected output: ReferenceError: nonExistentFunction is not defined     
     // Note - error messages will vary depending on browser 
     }
+
+try {nonExistentFunctionThree(); 
+} catch (warning) {
+        rollbar.critical(`Warning`);     
+        // expected output: ReferenceError: nonExistentFunction is not defined     
+        // Note - error messages will vary depending on browser 
+        }
+
 const port = process.env.PORT || 4005
 
 app.listen(port, () => {
