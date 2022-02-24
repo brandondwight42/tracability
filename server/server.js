@@ -20,13 +20,13 @@ app.get('/', function(req, res){
 
 try {nonExistentFunctionOne(); 
 } catch (error) {
-    rollbar.error(`${nonExistentFunction} does not exist.`);     
+    rollbar.error(`error`);     
     // expected output: ReferenceError: nonExistentFunction is not defined     
     // Note - error messages will vary depending on browser 
     }
 try {nonExistentFunctionTwo(); 
 } catch (error) {
-    rollbar.critical(`${nonExistentFunction} does not exist. CRITICAL`);     
+    rollbar.critical(`CRITICAL error`);     
     // expected output: ReferenceError: nonExistentFunction is not defined     
     // Note - error messages will vary depending on browser 
     }
