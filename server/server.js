@@ -15,8 +15,11 @@ rollbar.log('Hello world!')
 const app = express();
 
 app.get('/', function(req, res){
+    console.log(res)
     res.sendFile(path.join(__dirname, '../index.html'))
 });
+
+
 
 try {nonExistentFunctionOne(); 
 } catch (error) {
@@ -37,6 +40,15 @@ try {nonExistentFunctionThree();
         // expected output: ReferenceError: nonExistentFunction is not defined     
         // Note - error messages will vary depending on browser 
         }
+
+try {buttonClick(); 
+} catch (warning) {
+                rollbar.warning(`warning`);     
+                // expected output: ReferenceError: nonExistentFunction is not defined     
+                // Note - error messages will vary depending on browser 
+                }
+
+
 
 const port = process.env.PORT || 4005
 
